@@ -1,0 +1,13 @@
+name: "Auto-quarantine malicious messages"
+description: "Automatically quarantine flagged messages with a Malicious Attack Score"
+type: "triage_rule"
+triage_flagged_messages: true
+default_actions: ["quarantine_message"]
+source: |
+  type.inbound
+  and ml.attack_score().verdict == "malicious"
+severity: "high"
+attack_types:
+  - "Malicious"
+id: "a1b2c3d4-5678-90ab-cdef-123456789abc"
+
